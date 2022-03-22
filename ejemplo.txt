@@ -1,0 +1,12 @@
+git add .
+Archivo de texto 
+
+
+
+
+
+
+
+
+
+
