@@ -1,7 +1,7 @@
-train_bp <- read.csv("pollos_petrel/train.csv")
+read_training_dataset <- read.csv("pollos_petrel/train.csv")
 # Crea un histograma de longitud de tarso
 hist(
-  train_bp$Longitud_tarso,
+  read_training_dataset$Longitud_tarso,
   main = "Longitud de tarso",
   xlab = "Longitud tarso",
   ylab = "Frecuencia"
