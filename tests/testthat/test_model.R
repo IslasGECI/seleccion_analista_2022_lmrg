@@ -5,7 +5,6 @@ set.seed(2)
 dataset <- tibble(id = (1:100), Masa = (101:200), L_tars = rnorm(100), L_ala = rnorm(100), L_pico = rnorm(100), targ = (1:100))
 # Test del modelo de regresion líneal múltiple
 test_that("Create model Linel Regression Multiple", {
-  lm_dt <- lm(dataset$targ ~ dataset$Masa + dataset$L_tars + dataset$L_ala + dataset$L_pico)
   expect_is(model_target, "lm")
 })
 # Test predict
