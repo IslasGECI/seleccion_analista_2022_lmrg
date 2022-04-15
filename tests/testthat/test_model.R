@@ -17,6 +17,5 @@ test_that("Get target by test dataset", {
 })
 # Test csv export
 test_that("Export csv", {
-  target_csv <- "pollos_petrel/target.csv"
-  expect_true(file.exists(target_csv))
+  expect_true(file.exists(export_csv))
 })
