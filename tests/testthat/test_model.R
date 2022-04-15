@@ -7,13 +7,12 @@ test_that("Create model Linel Regression Multiple", {
   lm_dt <- lm(dataset$targ ~ dataset$Masa + dataset$L_tars + dataset$L_ala + dataset$L_pico)
   expect_that(lm_dt, model_target)
 })
-# Test target predict
-test_that("Get target", {
-  expect_s3_class(predict_target, "array")
+#Test predict
+test_that("Get target by test dataset", {
+  target_fake <- tibble(fit =1:1304, lwr=1:1304, vpr=1:1304)
+  obtained_columns <- colnames(target_fake)
+  expect_cloumns <- colnames(predict_target())
+  expect_equal(expect_columns, obtained_columns)
 })
-# Test export predict
-test_that("Get target", {
-  export_target_fake <- write.csv(target_fake)
-  expect_that(export_target_fake, export_csv)
-})
+#Test file csv
 
