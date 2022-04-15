@@ -1,5 +1,6 @@
 library(testthat)
 library(tidyverse)
+setwd("/workdir/")
 set.seed(2)
 dataset <- tibble(id = (1:100), Masa = (101:200), L_tars = rnorm(100), L_ala = rnorm(100), L_pico = rnorm(100), targ = (1:100))
 # Test del modelo de regresion líneal múltiple

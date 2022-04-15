@@ -1,4 +1,5 @@
 library(skimr)
+setwd("/workdir/")
 training_dataset <- read.csv("pollos_petrel/train.csv")
 skim(training_dataset)
 # Ajuste del modelo  Y = beta0 + beta1Masa + beta2Longitud_tarso + beta3Longitud_pico + e
