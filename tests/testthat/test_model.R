@@ -1,8 +1,6 @@
 library(testthat)
 library(tidyverse)
 setwd("/workdir/")
-set.seed(2)
-dataset <- tibble(id = (1:100), Masa = (101:200), L_tars = rnorm(100), L_ala = rnorm(100), L_pico = rnorm(100), targ = (1:100))
 # Test del modelo de regresion líneal múltiple
 test_that("Create model Linel Regression Multiple", {
   expect_is(model_target, "lm")
@@ -16,5 +14,5 @@ test_that("Get target by test dataset", {
 })
 # Test csv export
 test_that("Export csv", {
-  expect_true(file.exists(export_csv))
+  expect_snapshot_file(export_csv, "File.csv")
 })
