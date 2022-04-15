@@ -9,10 +9,9 @@ test_that("Create model Linel Regression Multiple", {
 })
 #Test predict
 test_that("Get target by test dataset", {
-  target_fake <- tibble(fit =1:1304, lwr=1:1304, vpr=1:1304)
+  target_fake <- tibble(fit=1:325, lwr=1:325, upr=1:325)
   obtained_columns <- colnames(target_fake)
-  expect_cloumns <- colnames(predict_target())
-  expect_equal(expect_columns, obtained_columns)
+  expect_columns <- colnames(predict_target())
+  expect_named(expect_columns, obtained_columns)
 })
-#Test file csv
 
