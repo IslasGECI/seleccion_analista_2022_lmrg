@@ -5,13 +5,17 @@ dataset <- tibble(id = (1:100), Masa = (101:200), L_tars = rnorm(100), L_ala = r
 # Test del modelo de regresion líneal múltiple
 test_that("Create model Linel Regression Multiple", {
   lm_dt <- lm(dataset$targ ~ dataset$Masa + dataset$L_tars + dataset$L_ala + dataset$L_pico)
-  expect_that(lm_dt, model_target)
+  expect_is(model_target, "lm")
 })
-#Test predict
+# Test predict
 test_that("Get target by test dataset", {
-  target_fake <- tibble(fit=1:325, lwr=1:325, upr=1:325)
+  target_fake <- tibble(fit = 1:325, lwr = 1:325, upr = 1:325)
   obtained_columns <- colnames(target_fake)
   expect_columns <- colnames(predict_target())
   expect_named(expect_columns, obtained_columns)
 })
-
+# Test csv export
+test_that("Export csv", {
+  target_csv <- "pollos_petrel/target.csv"
+  expect_true(file.exists(target_csv))
+})

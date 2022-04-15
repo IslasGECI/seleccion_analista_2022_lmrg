@@ -18,5 +18,5 @@ predict_target <- function() {
 }
 # Export target predict
 export_csv <- function() {
-  write.csv(target_new, "/Users/lizethreyes/Desktop/seleccion_analista_2022_lmrg/pollos_petrel/target.csv", row.names = FALSE)
+  write.csv(target_new, "pollos_petrel/target.csv", row.names = FALSE)
 }
