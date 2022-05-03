@@ -7,7 +7,7 @@ pollos_petrel/example_python_submission.csv: setup_python src/example_submission
 	src/example_submission.py
 
 pollos_petrel/example_r_submission.csv: setup_r src/example_submission.R
-	@echo "Creating R submission..."
+	@echo "Creating R submission from Lizeth..."
 	src/example_submission.R
 
 module = pollos_petrel
