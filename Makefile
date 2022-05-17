@@ -47,15 +47,6 @@ check:
       -e "resumen <- rbind(resumen, style_dir('tests'))" \
       -e "any(resumen[[2]])" \
       | grep FALSE
-	black --check --line-length 100 ${module}
-	black --check --line-length 100 src
-	black --check --line-length 100 tests
-	flake8 --max-line-length 100 ${module}
-	flake8 --max-line-length 100 src
-	flake8 --max-line-length 100 tests
-	mypy ${module}
-	mypy src
-	mypy tests
 
 clean:
 	rm --force --recursive ${module}.egg-info
