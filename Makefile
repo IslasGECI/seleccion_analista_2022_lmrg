@@ -1,13 +1,11 @@
-submissions: \
-    pollos_petrel/example_python_submission.csv \
-    pollos_petrel/example_r_submission.csv
+submissions: pollos_petrel/example_r_submission.csv
 
 pollos_petrel/example_python_submission.csv: setup_python src/example_submission.py
 	@echo "Creating Python submission..."
 	src/example_submission.py
 
 pollos_petrel/example_r_submission.csv: setup_r src/example_submission.R
-	@echo "Creating R submission..."
+	@echo "Creating R submission from Lizeth..."
 	src/example_submission.R
 
 module = pollos_petrel
@@ -47,15 +45,6 @@ check:
       -e "resumen <- rbind(resumen, style_dir('tests'))" \
       -e "any(resumen[[2]])" \
       | grep FALSE
-	black --check --line-length 100 ${module}
-	black --check --line-length 100 src
-	black --check --line-length 100 tests
-	flake8 --max-line-length 100 ${module}
-	flake8 --max-line-length 100 src
-	flake8 --max-line-length 100 tests
-	mypy ${module}
-	mypy src
-	mypy tests
 
 clean:
 	rm --force --recursive ${module}.egg-info
