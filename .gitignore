@@ -8,3 +8,6 @@ src/*.dll
 .DS_Store
 get-pip.py
 tests/testthat/_snaps/*
+*.Rcheck
+*.tar.gz
+NAMESPACE
