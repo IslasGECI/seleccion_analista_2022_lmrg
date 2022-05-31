@@ -21,7 +21,7 @@ describe("write dataframe with target column equal one", {
   })
   it("327 rows", {
     expected_n_rows <- 327
-    obtained_n_rows <- count(target_equal_one(327),"id")
+    obtained_n_rows <- nrow(target_equal_one(327))
     expect_equal(obtained_n_rows, expected_n_rows)
   })
 })
