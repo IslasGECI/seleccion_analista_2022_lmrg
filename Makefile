@@ -26,6 +26,7 @@ endef
     coverage_python \
     coverage_r \
     format \
+    init \
     linter \
     mutants \
     mutants_python \
@@ -75,6 +76,7 @@ format:
       -e "style_dir('R')" \
       -e "style_dir('src')" \
       -e "style_dir('tests')"
+init: setup_r tests_r
 
 linter:
 	$(call lint, ${module})
