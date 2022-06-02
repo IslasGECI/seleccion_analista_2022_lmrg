@@ -69,9 +69,6 @@ coverage_r: setup_r
 	Rscript tests/testthat/coverage.R
 
 format:
-	black --line-length 100 ${module}
-	black --line-length 100 src
-	black --line-length 100 tests
 	R -e "library(styler)" \
       -e "style_dir('R')" \
       -e "style_dir('src')" \
