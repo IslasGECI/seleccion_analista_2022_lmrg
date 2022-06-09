@@ -6,6 +6,6 @@ target_equal_one <- function(n_rows) {
     mutate("target" = target_mean)
   return(submission)
 }
-get_target <- function(){
+get_target <- function() {
   return(1)
 }
