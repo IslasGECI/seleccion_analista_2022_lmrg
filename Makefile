@@ -1,4 +1,4 @@
-submissions: pollos_petrel/example_r_submission.csv
+submissions: pollos_petrel/example_r_submission.csv  pollos_petrel/example_lizeth_submission.csv
 
 pollos_petrel/example_python_submission.csv: setup_python src/example_submission.py
 	@echo "Creating Python submission..."
@@ -7,6 +7,10 @@ pollos_petrel/example_python_submission.csv: setup_python src/example_submission
 pollos_petrel/example_r_submission.csv: setup_r src/example_submission.R
 	@echo "Creating R submission from Lizeth..."
 	src/example_submission.R
+
+pollos_petrel/example_lizeth_submission.csv: setup_r src/lizeth_submission.R
+	@echo "Creating R submission from Lizeth..."
+	src/lizeth_submission.R
 
 module = pollos_petrel
 
