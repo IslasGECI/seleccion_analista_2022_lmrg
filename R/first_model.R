@@ -27,7 +27,7 @@ write_lizeth_submission <- function() {
   submission_path <- "pollos_petrel/example_lizeth_submission.csv"
   submission <- target_equal_one()
   write_csv(submission, submission_path)
-  submission_path <- "pollos_petrel/example_lizeth_submission_lineal.csv"
+  submission_path <- "pollos_petrel/example_lizeth_lineal_submission.csv"
   submission <- target_lineal_model()
   write_csv(submission, submission_path)
 }
