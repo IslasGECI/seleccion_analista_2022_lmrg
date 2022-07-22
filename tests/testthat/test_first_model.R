@@ -10,3 +10,10 @@ describe("write dataframe with target column equal one", {
     expect_equal(obtained_n_rows, expected_n_rows)
   })
 })
+describe("write dataframe with target calculate lineal model", {
+  it("input parameters", {
+    expected_b <- -4.8192
+    obtained_b <- get_age_by_mass(0)
+    expect_equal(obtained_b, expected_b)
+  })
+})
