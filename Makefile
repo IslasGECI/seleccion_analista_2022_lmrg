@@ -103,10 +103,7 @@ setup_r: clean
     R CMD check SeleccionAnalista2022_0.1.0.tar.gz && \
     R CMD INSTALL SeleccionAnalista2022_0.1.0.tar.gz
 
-tests: tests_python tests_r
-
-tests_python:
-	pytest --verbose
+tests: tests_r
 
 tests_r:
 	Rscript -e "devtools::test(stop_on_failure = TRUE)"
