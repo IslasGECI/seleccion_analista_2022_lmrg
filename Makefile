@@ -1,14 +1,9 @@
-submissions: pollos_petrel/example_r_submission.csv  pollos_petrel/example_lizeth_submission.csv
-
-pollos_petrel/example_python_submission.csv: setup_python src/example_submission.py
-	@echo "Creating Python submission..."
-	src/example_submission.py
-
+submissions: pollos_petrel/example_r_submission.csv  lizeth_submissions
 pollos_petrel/example_r_submission.csv: setup_r src/example_submission.R
 	@echo "Creating R submission from Lizeth..."
 	src/example_submission.R
 
-pollos_petrel/example_lizeth_submission.csv: setup_r src/lizeth_submission.R
+lizeth_submissions: setup_r src/lizeth_submission.R
 	@echo "Creating R submission from Lizeth..."
 	src/lizeth_submission.R
 
@@ -32,6 +27,7 @@ endef
     format \
     init \
     linter \
+    lizeth_submissions \
     mutants \
     mutants_python \
     mutants_r \
