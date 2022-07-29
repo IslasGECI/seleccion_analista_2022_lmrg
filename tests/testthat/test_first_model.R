@@ -17,6 +17,7 @@ describe("write dataframe with target calculate lineal model", {
     expect_equal(obtained_b, expected_b)
   })
 })
+
 describe("write dataframe with target column equal age, target_lineal_model", {
   it("326 rows", {
     expected_n_rows <- 326
@@ -32,5 +33,28 @@ describe("write dataframe with target column equal age, target_lineal_model", {
     expected_name_columns <- c("id", "target")
     obtained_name_columns <- names(target_lineal_model())
     expect_equal(obtained_name_columns, expected_name_columns)
+  })
+})
+
+describe("Write submission a csv files: target equal one and lineal model", {
+  it("writes a csv file lineal model", {
+    submission_path <- "pollos_petrel/example_lizeth_lineal_submission.csv"
+    if (file.exists(submission_path)) {
+      file.remove(submission_path)
+    }
+    expect_false(file.exists(submission_path))
+    write_lizeth_submission()
+    expect_true(file.exists(submission_path))
+    file.remove(submission_path)
+  })
+  it("writes a csv file lineal model", {
+    submission_path <- "pollos_petrel/example_lizeth_submission.csv"
+    if (file.exists(submission_path)) {
+      file.remove(submission_path)
+    }
+    expect_false(file.exists(submission_path))
+    write_lizeth_submission()
+    expect_true(file.exists(submission_path))
+    file.remove(submission_path)
   })
 })
