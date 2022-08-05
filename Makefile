@@ -1,11 +1,13 @@
-submissions: pollos_petrel/example_r_submission.csv  lizeth_submissions
+submissions: pollos_petrel/example_r_submission.csv  lizeth_submissions pollos_petrel/example_lizeth_square_model_submission.csv
 pollos_petrel/example_r_submission.csv: setup_r src/example_submission.R
 	@echo "Creating R submission from Lizeth..."
 	src/example_submission.R
-
 lizeth_submissions: setup_r src/lizeth_submission.R
 	@echo "Creating R submission from Lizeth..."
 	src/lizeth_submission.R
+pollos_petrel/example_lizeth_square_model_submission.csv: setup_r src/example_lizeth_square_model_submission.R
+	@echo "Creating R submission from Lizeth..."
+	src/example_lizeth_square_model_submission.R
 
 module = pollos_petrel
 
