@@ -1,12 +1,13 @@
-submissions: pollos_petrel/example_r_submission.csv
-
-pollos_petrel/example_python_submission.csv: setup_python src/example_submission.py
-	@echo "Creating Python submission..."
-	src/example_submission.py
-
+submissions: pollos_petrel/example_r_submission.csv  lizeth_submissions pollos_petrel/example_lizeth_square_model_submission.csv
 pollos_petrel/example_r_submission.csv: setup_r src/example_submission.R
 	@echo "Creating R submission from Lizeth..."
 	src/example_submission.R
+lizeth_submissions: setup_r src/lizeth_submission.R
+	@echo "Creating R submission from Lizeth..."
+	src/lizeth_submission.R
+pollos_petrel/example_lizeth_square_model_submission.csv: setup_r src/lizeth_square_model_submission.R
+	@echo "Creating R submission from Lizeth..."
+	src/lizeth_square_model_submission.R
 
 module = pollos_petrel
 
@@ -26,7 +27,9 @@ endef
     coverage_python \
     coverage_r \
     format \
+    init \
     linter \
+    lizeth_submissions \
     mutants \
     mutants_python \
     mutants_r \
@@ -68,13 +71,11 @@ coverage_r: setup_r
 	Rscript tests/testthat/coverage.R
 
 format:
-	black --line-length 100 ${module}
-	black --line-length 100 src
-	black --line-length 100 tests
 	R -e "library(styler)" \
       -e "style_dir('R')" \
       -e "style_dir('src')" \
       -e "style_dir('tests')"
+init: setup_r tests_r
 
 linter:
 	$(call lint, ${module})
@@ -100,10 +101,7 @@ setup_r: clean
     R CMD check SeleccionAnalista2022_0.1.0.tar.gz && \
     R CMD INSTALL SeleccionAnalista2022_0.1.0.tar.gz
 
-tests: tests_python tests_r
-
-tests_python:
-	pytest --verbose
+tests: tests_r
 
 tests_r:
 	Rscript -e "devtools::test(stop_on_failure = TRUE)"
